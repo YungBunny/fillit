@@ -6,7 +6,7 @@
 /*   By: cfu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/13 15:12:23 by cfu               #+#    #+#             */
-/*   Updated: 2017/01/16 21:23:41 by cfu              ###   ########.fr       */
+/*   Updated: 2017/01/17 19:55:24 by cfu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 # include <string.h>
 # include <fcntl.h>
 
-static char *v_tets[] = {"####", "#....#....#....#", "#....#....#....##",
-						"##...#....#", "##....#....#", "#....#....#...##",
+static char *v_tets[] = {"####", "#....#....#....#", "#....#....##",
+						"##...#....#", "##....#....#", "#....#...##",
 						"###..#", "###....#", "#....##...#", "#...##....#",
 						"###...#", "#...###", "##....##", "##..##", 
 						"#....##....#", "#...##...#", "##...##"};
@@ -38,5 +38,7 @@ char				*ft_strchr(const char *s, int c);
 char				*ft_strrchr(const char *s, int c);
 void				ft_bzero(void *s, size_t n);
 void				*ft_memset(void *b, int c, size_t len);
+int					ft_validate_tets(char *str);
+int					ft_strequ(char const *s1, char const *s2);
 
 #endif
