@@ -6,7 +6,7 @@
 /*   By: cfu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/13 15:12:23 by cfu               #+#    #+#             */
-/*   Updated: 2017/01/17 19:55:24 by cfu              ###   ########.fr       */
+/*   Updated: 2017/01/17 22:47:35 by cfu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,6 @@ void				ft_bzero(void *s, size_t n);
 void				*ft_memset(void *b, int c, size_t len);
 int					ft_validate_tets(char *str);
 int					ft_strequ(char const *s1, char const *s2);
+void				ft_putnbr(int n);
 
 #endif

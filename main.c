@@ -6,7 +6,7 @@
 /*   By: cfu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/16 17:11:31 by cfu               #+#    #+#             */
-/*   Updated: 2017/01/17 19:33:17 by cfu              ###   ########.fr       */
+/*   Updated: 2017/01/18 15:56:29 by cfu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ int		main(int argc, char **argv)
 	}
 	res = ft_gettet(fd);
 	valid = ft_validate_tets(res);
-	return (valid);
+	ft_putnbr(valid);
+	return (0);
 }
