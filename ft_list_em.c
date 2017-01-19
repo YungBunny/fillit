@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fillit.c                                        :+:      :+:    :+:   */
+/*   ft_list_em.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/18 17:18:05 by cfu               #+#    #+#             */
-/*   Updated: 2017/01/18 22:27:05 by cfu              ###   ########.fr       */
+/*   Created: 2017/01/18 18:39:24 by cfu               #+#    #+#             */
+/*   Updated: 2017/01/18 22:19:48 by cfu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	ft_fillit(int fd)
+t_list		*ft_list_em(char *str, t_list *tet_list)
 {
-	char	*res;
-	int		valid;
-	t_list	*tet_list;
+	t_list *current_node;
 
-	while (fd)
-	{
-		res = ft_gettet(fd);
-		valid = 0;
-		if ((valid = ft_validate_tets(res)) == 1)
-			tet_list = ft_list_em(res, tet_list);
-	}
-	ft_print_list(tet_list);
+	current_node = ft_lstnew(str, ft_strlen(str));
+	if (tet_list->next == NULL)
+		tet_list->next = current_node;
+	else
+		ft_lsteadd(&tet_list, current_node);
+	return (tet_list);
 }

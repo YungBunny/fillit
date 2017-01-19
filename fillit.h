@@ -6,7 +6,7 @@
 /*   By: cfu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/13 15:12:23 by cfu               #+#    #+#             */
-/*   Updated: 2017/01/18 17:59:29 by cfu              ###   ########.fr       */
+/*   Updated: 2017/01/18 22:23:36 by cfu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,13 @@
 # include <stdlib.h>
 # include <string.h>
 # include <fcntl.h>
+
+typedef struct		s_list
+{
+	void			*content;
+	size_t			*content_size;
+	struct s_list	*next;
+}					t_list;
 
 static char *v_tets[] = {"####", "#....#....#....#", "#....#....##",
 						"##...#....#", "##....#....#", "#....#...##",
@@ -44,5 +51,12 @@ int					ft_strequ(char const *s1, char const *s2);
 void				ft_putnbr(int n);
 void				ft_pound_to_letter(char *str);
 void				ft_fillit(int fd);
+int					ft_list_size(t_list *begin_list);
+void				ft_print_list(t_list *begin_list);
+t_list				*ft_list_em(char *str, t_list *tet_list);
+t_list				*ft_lstnew(void const *content, size_t content_size);
+void				ft_lsteadd(t_list **alst, t_list *nw);
+void				*ft_memalloc(size_t size);
+void				*ft_memcpy(void *dst, const void *src, size_t n);
 
 #endif

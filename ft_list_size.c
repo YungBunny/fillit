@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fillit.c                                        :+:      :+:    :+:   */
+/*   ft_list_size.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/18 17:18:05 by cfu               #+#    #+#             */
-/*   Updated: 2017/01/18 22:27:05 by cfu              ###   ########.fr       */
+/*   Created: 2017/01/18 21:34:56 by cfu               #+#    #+#             */
+/*   Updated: 2017/01/18 21:37:32 by cfu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	ft_fillit(int fd)
+int		ft_list_size(t_list *begin_list)
 {
-	char	*res;
-	int		valid;
-	t_list	*tet_list;
+	int	count;
 
-	while (fd)
+	count = 0;
+	if (begin_list)
 	{
-		res = ft_gettet(fd);
-		valid = 0;
-		if ((valid = ft_validate_tets(res)) == 1)
-			tet_list = ft_list_em(res, tet_list);
+		while (begin_list)
+		{
+			begin_list = begin_list->next;
+			count++;
+		}
 	}
-	ft_print_list(tet_list);
+	return (count);
 }

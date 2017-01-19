@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fillit.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/18 17:18:05 by cfu               #+#    #+#             */
-/*   Updated: 2017/01/18 22:27:05 by cfu              ###   ########.fr       */
+/*   Created: 2016/12/03 00:34:07 by cfu               #+#    #+#             */
+/*   Updated: 2017/01/18 22:21:16 by cfu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	ft_fillit(int fd)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	char	*res;
-	int		valid;
-	t_list	*tet_list;
+	unsigned char		*d;
+	const unsigned char *s;
 
-	while (fd)
+	d = dst;
+	s = src;
+	if (n)
 	{
-		res = ft_gettet(fd);
-		valid = 0;
-		if ((valid = ft_validate_tets(res)) == 1)
-			tet_list = ft_list_em(res, tet_list);
+		while (n > 0)
+		{
+			*d = *s;
+			d++;
+			s++;
+			n--;
+		}
 	}
-	ft_print_list(tet_list);
+	return (dst);
 }
