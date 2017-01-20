@@ -6,7 +6,7 @@
 /*   By: cfu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/16 17:40:27 by cfu               #+#    #+#             */
-/*   Updated: 2017/01/17 21:44:05 by cfu              ###   ########.fr       */
+/*   Updated: 2017/01/19 17:54:11 by cfu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,17 @@ char	*ft_trim_tet(char *str, char c)
 	if (src != dst)
 	{
 		while (str[src])
-			str[dst++] = str[src++];
+		{
+			str[dst] = str[src];
+			if (str[src] == '#')
+				str[src] = '.';
+			dst++;
+			src++;
+		}
 	}
 	while (str[end] != c)
 		end--;
 	end++;
-	ft_memset(&str[end], '\0', len);
+	ft_memset(&str[end], '\0', len - end);
 	return (str);
 }
