@@ -6,7 +6,7 @@
 /*   By: cfu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/13 15:12:23 by cfu               #+#    #+#             */
-/*   Updated: 2017/01/18 22:23:36 by cfu              ###   ########.fr       */
+/*   Updated: 2017/01/19 17:22:35 by cfu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static char *v_tets[] = {"####", "#....#....#....#", "#....#....##",
 					   	"#...##...#", "##...##"};
 
 void 				ft_repchar(char *str, char o, char n, int max);
-char				*ft_gettet(int fd);
+char				*ft_gettet(int fd, size_t *rbyt);
 char				*ft_trim_tet(char *str, char c);
 char				*ft_strnew(size_t size);
 size_t				ft_strlen(const char *s);
@@ -58,5 +58,6 @@ t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lsteadd(t_list **alst, t_list *nw);
 void				*ft_memalloc(size_t size);
 void				*ft_memcpy(void *dst, const void *src, size_t n);
+char				*ft_strdup(const char *s1);
 
 #endif
