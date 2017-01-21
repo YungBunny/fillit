@@ -6,7 +6,7 @@
 /*   By: cfu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 17:18:05 by cfu               #+#    #+#             */
-/*   Updated: 2017/01/19 18:09:00 by cfu              ###   ########.fr       */
+/*   Updated: 2017/01/20 22:27:32 by cfu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	ft_fillit(int fd)
 {
 	char	*res;
+	char	*brd;
 	int		valid;
 	size_t	rbyt;
 	t_list	*tet_list;
@@ -30,8 +31,10 @@ void	ft_fillit(int fd)
 		if ((valid = ft_validate_tets(res)) == 1)
 		{
 			ft_pound_to_letter(res);
+			ft_trim_per(res, '.');
 			tet_list = ft_list_em(res, tet_list);
 		}
 	}
-	ft_print_list(res_list);
+	brd = ft_make_board(ft_getboardsz(ft_list_size(res_list)));
+	ft_put_charlst(res_list);
 }

@@ -6,7 +6,7 @@
 /*   By: cfu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/13 15:12:23 by cfu               #+#    #+#             */
-/*   Updated: 2017/01/19 17:22:35 by cfu              ###   ########.fr       */
+/*   Updated: 2017/01/20 22:27:29 by cfu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,16 @@ void				ft_putnbr(int n);
 void				ft_pound_to_letter(char *str);
 void				ft_fillit(int fd);
 int					ft_list_size(t_list *begin_list);
-void				ft_print_list(t_list *begin_list);
+void				ft_put_charlst(t_list *begin_list);
 t_list				*ft_list_em(char *str, t_list *tet_list);
 t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lsteadd(t_list **alst, t_list *nw);
 void				*ft_memalloc(size_t size);
 void				*ft_memcpy(void *dst, const void *src, size_t n);
 char				*ft_strdup(const char *s1);
+char				*ft_put_board(char *str, size_t size);
+char				*ft_make_board(size_t size);
+size_t				ft_getboardsz(int size);
+void				ft_trim_per(char *str, char c);
 
 #endif

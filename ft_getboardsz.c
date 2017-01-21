@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_validate_tets.c                                 :+:      :+:    :+:   */
+/*   ft_getboardsz.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cfu <marvin@42.fr>                         +#+  +:+       +#+        */
+/*   By: cfu <cfu@student.42.us.org>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/16 17:45:30 by cfu               #+#    #+#             */
-/*   Updated: 2017/01/19 18:23:08 by cfu              ###   ########.fr       */
+/*   Created: 2017/01/20 19:35:24 by cfu               #+#    #+#             */
+/*   Updated: 2017/01/20 22:08:50 by cfu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		ft_validate_tets(char *str)
+size_t		ft_getboardsz(int size)
 {
-	int i;
+	size_t i;
 
 	i = 0;
-	while (v_tets[i])
-	{
-		if (ft_strequ(str, v_tets[i]) == 1)
-			return (1);
+	size = size * 4;
+	while ((i * i) < (size_t)size)
 		i++;
-	}
-	return (0);
+	return (i);
 }

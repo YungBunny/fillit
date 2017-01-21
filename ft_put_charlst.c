@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_validate_tets.c                                 :+:      :+:    :+:   */
+/*   ft_put_charlst.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cfu <marvin@42.fr>                         +#+  +:+       +#+        */
+/*   By: cfu <cfu@student.42.us.org>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/16 17:45:30 by cfu               #+#    #+#             */
-/*   Updated: 2017/01/19 18:23:08 by cfu              ###   ########.fr       */
+/*   Created: 2017/01/20 17:13:28 by cfu               #+#    #+#             */
+/*   Updated: 2017/01/20 22:27:34 by cfu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		ft_validate_tets(char *str)
+void		ft_put_charlst(t_list *begin_list)
 {
-	int i;
-
-	i = 0;
-	while (v_tets[i])
+	if (begin_list)
 	{
-		if (ft_strequ(str, v_tets[i]) == 1)
-			return (1);
-		i++;
+		while (begin_list)
+		{
+			ft_putstr(begin_list->content);
+			ft_putchar('\n');
+			begin_list = begin_list->next;
+		}
 	}
-	return (0);
 }

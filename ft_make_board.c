@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_validate_tets.c                                 :+:      :+:    :+:   */
+/*   ft_make_board.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cfu <marvin@42.fr>                         +#+  +:+       +#+        */
+/*   By: cfu <cfu@student.42.us.org>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/16 17:45:30 by cfu               #+#    #+#             */
-/*   Updated: 2017/01/19 18:23:08 by cfu              ###   ########.fr       */
+/*   Created: 2017/01/20 17:36:46 by cfu               #+#    #+#             */
+/*   Updated: 2017/01/20 22:08:43 by cfu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		ft_validate_tets(char *str)
+char		*ft_make_board(size_t size)
 {
-	int i;
+	char *str;
+	char *res;
 
-	i = 0;
-	while (v_tets[i])
+	str = ft_strnew(size * size);
+	res = str;
+	while (*str)
 	{
-		if (ft_strequ(str, v_tets[i]) == 1)
-			return (1);
-		i++;
+		*str = '.';
+		str++;
 	}
-	return (0);
+	return (res);
 }
