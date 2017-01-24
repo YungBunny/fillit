@@ -1,42 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_make_board.c                                    :+:      :+:    :+:   */
+/*   ft_put_charlst.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfu <cfu@student.42.us.org>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/20 17:36:46 by cfu               #+#    #+#             */
-/*   Updated: 2017/01/23 16:58:31 by cfu              ###   ########.fr       */
+/*   Created: 2017/01/20 17:13:28 by cfu               #+#    #+#             */
+/*   Updated: 2017/01/23 16:57:52 by cfu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-char		*ft_make_board(size_t size)
+void		ft_putchar_lst(t_list *begin_list)
 {
-	size_t	i;
-	int		n;
-	size_t	total_size;
-	char	*str;
-
-	i = 0;
-	n = 1;
-	total_size = (size * size + size);
-	if (!(str = ft_strnew(total_size)))
-		return (NULL);
-	while (i < total_size)
+	if (begin_list)
 	{
-		if (n % (size + 1) == 0)
+		while (begin_list)
 		{
-			str[i++] = '\n';
-			n++;
-		}
-		else
-		{
-			str[i++] = '.';
-			n++;
+			ft_putstr(begin_list->content);
+			ft_putchar('\n');
+			begin_list = begin_list->next;
 		}
 	}
-	str[i] = '\0';
-	return (str);
 }

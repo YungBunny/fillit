@@ -6,7 +6,7 @@
 /*   By: cfu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/13 15:12:23 by cfu               #+#    #+#             */
-/*   Updated: 2017/01/20 22:27:29 by cfu              ###   ########.fr       */
+/*   Updated: 2017/01/23 16:52:54 by cfu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,13 @@ typedef struct		s_list
 	size_t			*content_size;
 	struct s_list	*next;
 }					t_list;
+
+static char	*input_tets[] = {"####", "#...#...#...#", "#...#...##", 
+							"##..#...#.", "##...#...#", ".#...#..##", 
+							"###.#..", "###...#", "#...###", "..#.###", 
+							"#...##..#.", ".#..##...#", "###..#.", 
+							".#..###", "##...##", ".##.##.", "#...##...#..",
+							".#..##..#.", "##..##"};
 
 static char *v_tets[] = {"####", "#....#....#....#", "#....#....##",
 						"##...#....#", "##....#....#", "#....#...##",
@@ -52,7 +59,7 @@ void				ft_putnbr(int n);
 void				ft_pound_to_letter(char *str);
 void				ft_fillit(int fd);
 int					ft_list_size(t_list *begin_list);
-void				ft_put_charlst(t_list *begin_list);
+void				ft_putchar_lst(t_list *begin_list);
 t_list				*ft_list_em(char *str, t_list *tet_list);
 t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lsteadd(t_list **alst, t_list *nw);
