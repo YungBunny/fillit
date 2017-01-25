@@ -6,7 +6,7 @@
 /*   By: cfu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/13 15:12:23 by cfu               #+#    #+#             */
-/*   Updated: 2017/01/23 16:52:54 by cfu              ###   ########.fr       */
+/*   Updated: 2017/01/24 23:46:28 by cfu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,21 @@ typedef struct		s_list
 {
 	void			*content;
 	size_t			*content_size;
+	int				*off_set;
+	int				*char_spot;
 	struct s_list	*next;
 }					t_list;
+
+int	*off_sets[] = {{}, {}, {}, {9}, {}, {0}, {5, 6}, {}, {}, {0, 1}, {9},
+				{0}, {6}, {0}, {}, {0, 6}, {10 ,11}, {0, 9}, {}};
+
+int	*char_spots[] = {{0, 1, 2, 3}, {0, 4, 8, 12}, {0, 4, 8, 9}, 
+					{0, 1, 4, 8}, {0, 1, 5, 9}, {1, 5, 8, 9}, 
+					{0, 1, 2, 4}, {0, 1, 2, 6}, {0, 4, 5, 6},
+					{2, 4, 5, 6}, {0, 4, 5, 8}, {1, 4, 5, 9},
+					{0, 1, 2, 5}, {1, 4, 5, 6}, {0, 1, 5, 6},
+					{1, 2, 4, 5}, {0, 4, 5, 9}, {1, 4, 5, 8},
+					{0, 1, 4, 5}};
 
 static char	*input_tets[] = {"####", "#...#...#...#", "#...#...##", 
 							"##..#...#.", "##...#...#", ".#...#..##", 
@@ -70,5 +83,8 @@ char				*ft_put_board(char *str, size_t size);
 char				*ft_make_board(size_t size);
 size_t				ft_getboardsz(int size);
 void				ft_trim_per(char *str, char c);
+int					*ft_getindx(char *str);
+void				ft_solver(char *brd, int *arr, int spot);
+
 
 #endif
