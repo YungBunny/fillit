@@ -6,12 +6,14 @@
 /*   By: cfu <cfu@student.42.us.org>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 21:36:03 by cfu               #+#    #+#             */
-/*   Updated: 2017/01/23 22:10:57 by cfu              ###   ########.fr       */
+/*   Updated: 2017/01/24 21:16:37 by cfu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include <stdio.h>
+
+/*alter functiont count dots that come before and after characters as offsets */
 
 int		*ft_getindx(char *str)
 {
