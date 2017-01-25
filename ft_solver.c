@@ -6,33 +6,36 @@
 /*   By: cfu <cfu@student.42.us.org>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 21:56:33 by cfu               #+#    #+#             */
-/*   Updated: 2017/01/24 21:16:33 by cfu              ###   ########.fr       */
+/*   Updated: 2017/01/25 00:29:45 by cfu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void		ft_solver(char *brd, int *arr, int spot);
+void		ft_solver(char *brd, int *chars, int *off_set, int spot);
 {
 	int		next;
+	int		a;
+	int		o;
 
 	next = spot + 1;
+	a = 0;
+	o = 0;
 	while (brd[spot])
 	{
-		t = 0;
-		while (*arr)
+		while (chars[a])
 		{
-			if (*arr < 4 || (*arr > 3 && *arr < 8) || (*arr > 7 && *arr < 12)
-				   	|| (*arr > 11 && *arr < 16))
+			if (a < 4 || (a > 3 && a < 8) || (a > 7 && a < 12)
+				   	|| (a > 11 && a < 16))
 				brd[spot] = ft_strchr(brd[spot], '\n') + 1;
-			if (brd[spot + *arr] == '.')
-				arr++;
-			if (brd[spot + *arr] != '.')
-				ft_checkspot(&brd[next], tet);
-			/*condition that checks if the array is read through and the offset points are cleared, then call the function with the next tet.
-			 */
+			if (brd[spot + a] == '.')
+				a++;
+			if (brd[spot + a] != '.')
+				ft_solver(&brd[next], chars, off_set, next);
+			if (brd[spot + o])
+				o++;
 			else
-				return (0);
+				return
 		}
 	}
 }
