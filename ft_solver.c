@@ -6,13 +6,13 @@
 /*   By: cfu <cfu@student.42.us.org>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 21:56:33 by cfu               #+#    #+#             */
-/*   Updated: 2017/01/25 00:29:45 by cfu              ###   ########.fr       */
+/*   Updated: 2017/01/25 21:04:25 by cfu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void		ft_solver(char *brd, int *chars, int *off_set, int spot);
+int			ft_solver(char *brd, int *chars, int *off_sets, char c,  int spot)
 {
 	int		next;
 	int		a;
@@ -27,16 +27,16 @@ void		ft_solver(char *brd, int *chars, int *off_set, int spot);
 		{
 			if (a < 4 || (a > 3 && a < 8) || (a > 7 && a < 12)
 				   	|| (a > 11 && a < 16))
-				brd[spot] = ft_strchr(brd[spot], '\n') + 1;
+				brd[spot] = *(ft_strchr(&brd[spot], '\n') + 1);
 			if (brd[spot + a] == '.')
 				a++;
 			if (brd[spot + a] != '.')
-				ft_solver(&brd[next], chars, off_set, next);
+				ft_solver(&brd[next], chars, off_sets, c, next);
 			if (brd[spot + o])
 				o++;
 			else
-				return
+				return (0);
 		}
 	}
-}
+	return (1);
 }

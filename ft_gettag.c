@@ -1,37 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_big_solver.c                                    :+:      :+:    :+:   */
+/*   ft_gettag.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfu <cfu@student.42.us.org>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/24 21:59:55 by cfu               #+#    #+#             */
-/*   Updated: 2017/01/25 21:04:34 by cfu              ###   ########.fr       */
+/*   Created: 2017/01/25 19:33:56 by cfu               #+#    #+#             */
+/*   Updated: 2017/01/25 20:32:57 by cfu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void		ft_big_solver(char *brd, t_list *tet, int spot)
+char		ft_gettag(char *str)
 {
-	int		*chars;
-	int		*off_sets;
-	char	c;
-	int		next;
+	char	ret;
+	int		i;
 
-
-	chars = ft_getindx(tet->content);
-	off_sets = ft_getoffset(tet->content);
-	c = tet->letter;
-	next = spot + 1;
-	while (tet)
-	{
-		if (ft_solver(brd, chars, off_sets, c, spot) == 1)
-		{
-			tet = tet->next;
-			ft_big_solver(&brd[0], tet, spot);
-		}
-		else
-			ft_big_solver(&brd[next], tet, next);
-	}
+	i = 0;
+	while (str[i] == '.')
+		i++;
+	ret = str[i];
+	return (ret);
 }

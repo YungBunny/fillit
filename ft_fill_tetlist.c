@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_big_solver.c                                    :+:      :+:    :+:   */
+/*   ft_fill_tetlist.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfu <cfu@student.42.us.org>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/24 21:59:55 by cfu               #+#    #+#             */
-/*   Updated: 2017/01/25 21:04:34 by cfu              ###   ########.fr       */
+/*   Created: 2017/01/25 19:21:36 by cfu               #+#    #+#             */
+/*   Updated: 2017/01/25 21:04:27 by cfu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void		ft_big_solver(char *brd, t_list *tet, int spot)
+t_list		*ft_fill_tetlist(int fd)
 {
-	int		*chars;
-	int		*off_sets;
-	char	c;
-	int		next;
+	char	*res;
+	int		valid;
+	t_list	*tet_list;
+	t_list	*res_list;
+	size_t	rbyt;
 
-
-	chars = ft_getindx(tet->content);
-	off_sets = ft_getoffset(tet->content);
-	c = tet->letter;
-	next = spot + 1;
-	while (tet)
+	rbyt = 21;
+	tet_list = ft_lstnew(NULL, 0);
+	res_list = tet_list;
+	while (rbyt == 21)
 	{
-		if (ft_solver(brd, chars, off_sets, c, spot) == 1)
+		res = ft_gettet(fd, &rbyt);
+		valid = 0;
+		if ((valid = ft_validate_tets(res)) != -1)
 		{
-			tet = tet->next;
-			ft_big_solver(&brd[0], tet, spot);
+			res = ft_strdup(input_tets[valid]);
+			ft_pound_to_letter(res);
+			tet_list = ft_list_em(res, tet_list);
 		}
-		else
-			ft_big_solver(&brd[next], tet, next);
 	}
+	return (res_list);
 }
