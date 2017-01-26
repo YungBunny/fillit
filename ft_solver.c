@@ -6,37 +6,58 @@
 /*   By: cfu <cfu@student.42.us.org>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 21:56:33 by cfu               #+#    #+#             */
-/*   Updated: 2017/01/25 21:04:25 by cfu              ###   ########.fr       */
+/*   Updated: 2017/01/26 03:52:06 by cfu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+#include <stdio.h>
 
-int			ft_solver(char *brd, int *chars, int *off_sets, char c,  int spot)
+int			ft_solver(char *brd, int *chars, int *off_sets, char c, int spot, size_t boardsz)
 {
-	int		next;
 	int		a;
-	int		o;
+	int		l;
+	int		u;
 
-	next = spot + 1;
 	a = 0;
-	o = 0;
-	while (brd[spot])
+	l = 3;
+	u = 8;
+	if (brd[spot] == '\n')
+		spot++;
+	if (brd[spot] == '\0')
+		return (0);
+	while (a <= 3)
 	{
-		while (chars[a])
+		while (chars[a] > l && chars[a] < u)
 		{
-			if (a < 4 || (a > 3 && a < 8) || (a > 7 && a < 12)
-				   	|| (a > 11 && a < 16))
-				brd[spot] = *(ft_strchr(&brd[spot], '\n') + 1);
 			if (brd[spot + a] == '.')
 				a++;
-			if (brd[spot + a] != '.')
-				ft_solver(&brd[next], chars, off_sets, c, next);
-			if (brd[spot + o])
-				o++;
 			else
-				return (0);
+			{
+				spot++;
+				ft_solver(&brd[spot], chars, off_sets, c, spot, boardsz);
+			}
 		}
+		spot = spot + (int)boardsz + 1;
+		l += 4;
+		u += 4;
 	}
-	return (1);
+	if (ft_checkoffsets(&brd[spot], off_sets, spot) == 1)
+		return (1);
+}
+
+int		main(void)
+{
+	char	*brd;
+	char	*tet;
+	int		*arr1;
+	int		*arr2;
+	char	c;
+
+	brd = ft_strdup("ABB.\nAABB\nA...\n....\n");
+	tet = ft_strdup("C...CCC");
+	arr1 = ft_getindx(tet);
+	arr2 = ft_getoffset(tet);
+	c = ft_gettag(tet);
+	printf("%d", ft_solver(brd, arr1, arr2, c, 0, 4));
 }

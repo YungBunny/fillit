@@ -1,38 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fill_tetlist.c                                  :+:      :+:    :+:   */
+/*   ft_checkoffsets.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfu <cfu@student.42.us.org>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/25 19:21:36 by cfu               #+#    #+#             */
-/*   Updated: 2017/01/26 03:52:17 by cfu              ###   ########.fr       */
+/*   Created: 2017/01/26 01:49:07 by cfu               #+#    #+#             */
+/*   Updated: 2017/01/26 02:09:45 by cfu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-t_list		*ft_fill_tetlist(int fd)
+int		ft_checkoffsets(char *brd, int *off_sets, int spot)
 {
-	char	*res;
-	int		valid;
-	t_list	*tet_list;
-	t_list	*res_list;
-	size_t	rbyt;
+	int		o;
+	int		l;
+	int		u;
 
-	rbyt = 21;
-	tet_list = ft_lstnew(NULL, 0);
-	res_list = tet_list;
-	while (rbyt == 21)
+	o = 0;
+	l = 3;
+	u = 8;
+	if (brd[spot])
 	{
-		res = ft_gettet(fd, &rbyt);
-		valid = 0;
-		if ((valid = ft_validate_tets(res)) != -1)
+		while (off_sets[o])
 		{
-			res = ft_strdup(input_tets[valid]);
-			ft_pound_to_letter(res);
-			tet_list = ft_list_em(res, tet_list);
+			while (off_sets[o] > l && off_sets[o] < u)
+			{
+				if (!brd[spot + o])
+					return (0);
+				o++;
+			}
+			l += 4;
+			u += 4;
 		}
 	}
-	return (res_list);
-}
+	return (1);
+}	
