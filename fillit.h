@@ -6,7 +6,7 @@
 /*   By: cfu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/13 15:12:23 by cfu               #+#    #+#             */
-/*   Updated: 2017/01/26 03:52:22 by cfu              ###   ########.fr       */
+/*   Updated: 2017/01/26 23:09:02 by cfu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ typedef struct		s_list
 	void			*content;
 	size_t			*content_size;
 	char			letter;
-	int				*off_set;
-	int				*char_spot;
 	struct s_list	*next;
 }					t_list;
 
