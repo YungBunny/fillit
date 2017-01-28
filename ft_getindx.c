@@ -6,14 +6,11 @@
 /*   By: cfu <cfu@student.42.us.org>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 21:36:03 by cfu               #+#    #+#             */
-/*   Updated: 2017/01/24 21:59:38 by cfu              ###   ########.fr       */
+/*   Updated: 2017/01/27 15:32:30 by cfu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include <stdio.h>
-
-/*alter functiont count dots that come before and after characters as offsets */
 
 int		*ft_getindx(char *str)
 {
@@ -23,7 +20,7 @@ int		*ft_getindx(char *str)
 
 	s = 0;
 	a = 0;
-	arr = (int *)malloc(sizeof(int) * 4);
+	arr = (int *)ft_memalloc(sizeof(int) * 4);
 	if (str)
 	{
 		while (str[s])
