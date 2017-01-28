@@ -6,7 +6,7 @@
 /*   By: cfu <cfu@student.42.us.org>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/24 21:59:55 by cfu               #+#    #+#             */
-/*   Updated: 2017/01/27 16:09:12 by cfu              ###   ########.fr       */
+/*   Updated: 2017/01/27 17:10:04 by cfu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ void		ft_big_solver(char *brd, t_list *tet, int spot)
 	int		next;
 
 	board_size = ft_getboardsz(ft_list_size(tet));
-	tet->char_spots = ft_getindx(tet->content);
-	tet->off_sets = ft_getoffset(tet->content);
 	next = spot + 1;
 	while (tet)
 	{

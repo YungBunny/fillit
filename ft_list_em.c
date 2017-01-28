@@ -6,7 +6,7 @@
 /*   By: cfu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 18:39:24 by cfu               #+#    #+#             */
-/*   Updated: 2017/01/27 15:34:49 by cfu              ###   ########.fr       */
+/*   Updated: 2017/01/27 17:09:11 by cfu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ t_list		*ft_list_em(char *str, t_list *tet_list)
 	if (*str)
 	{
 		current_node = ft_lstnew(str, ft_strlen(str));
+		current_node->char_spots = ft_getindx(current_node->content);
+		current_node->off_sets = ft_getoffset(current_node->content);
 		current_node->letter = ft_gettag(str);
 	}
 	if (tet_list->content == NULL)
