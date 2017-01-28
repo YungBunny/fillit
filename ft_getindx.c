@@ -6,19 +6,21 @@
 /*   By: cfu <cfu@student.42.us.org>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 21:36:03 by cfu               #+#    #+#             */
-/*   Updated: 2017/01/27 19:21:25 by cfu              ###   ########.fr       */
+/*   Updated: 2017/01/27 23:09:04 by cfu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void		ft_getindx(t_list *tet, char *str)
+int		*ft_getindx(char *str)
 {
 	int	s;
 	int	a;
+	int	*arr;
 
 	s = 0;
 	a = 0;
+	arr = (int *)malloc(sizeof(int) * 4);
 	if (str)
 	{
 		while (str[s])
@@ -27,9 +29,10 @@ void		ft_getindx(t_list *tet, char *str)
 				s++;
 			else
 			{
-				tet->char_spots[a++] = s;
+				arr[a++] = s;
 				s++;
 			}
 		}
 	}
+	return (arr);
 }

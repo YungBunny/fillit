@@ -6,7 +6,7 @@
 /*   By: cfu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 18:39:24 by cfu               #+#    #+#             */
-/*   Updated: 2017/01/27 19:21:19 by cfu              ###   ########.fr       */
+/*   Updated: 2017/01/27 22:43:16 by cfu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,12 @@
 t_list		*ft_list_em(char *str, t_list *tet_list)
 {
 	t_list	*current_node;
+	int i;
+
+	i = 0;
 	current_node = NULL;
 	if (*str)
-	{
 		current_node = ft_lstnew(str, ft_strlen(str));
-		ft_getindx(current_node, str);
-		current_node->letter = ft_gettag(str);
-	}
 	if (tet_list->content == NULL)
 	{
 		tet_list->content = ft_strdup((char *)current_node->content);

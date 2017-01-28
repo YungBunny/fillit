@@ -6,7 +6,7 @@
 /*   By: cfu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/16 17:11:31 by cfu               #+#    #+#             */
-/*   Updated: 2017/01/27 17:36:12 by cfu              ###   ########.fr       */
+/*   Updated: 2017/01/27 22:42:35 by cfu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ int		main(int argc, char **argv)
 		return (-1);
 	fd = open(argv[1], O_RDONLY);
 	db = ft_fill_tetlist(fd);
-	ft_putchar_lst(db);
+	ft_fillit(db);
 	return (0);
 }

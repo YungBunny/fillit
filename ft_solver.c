@@ -6,13 +6,13 @@
 /*   By: cfu <cfu@student.42.us.org>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 21:56:33 by cfu               #+#    #+#             */
-/*   Updated: 2017/01/27 19:21:21 by cfu              ###   ########.fr       */
+/*   Updated: 2017/01/27 22:51:28 by cfu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int			ft_solver(char *brd, t_list tet, int spot, size_t boardsz)
+int			ft_solver(char *brd, t_list tet, int spot, size_t boardsz, char c)
 {
 	int		l;
 	int		u;
@@ -36,11 +36,14 @@ int			ft_solver(char *brd, t_list tet, int spot, size_t boardsz)
 		{
 			tet.char_spots[i] = tet.char_spots[i] - (count * 4);
 			if (brd[spot + tet.char_spots[i]] == '.')
+			{
+				brd[spot + tet.char_spots[i]] = c;
 				i++;
+			}
 			else
 			{
 				spot++;
-				ft_solver(&brd[next], tet, next, boardsz);
+				ft_solver(&brd[next], tet, next, boardsz, c);
 			}
 		}
 		count++;

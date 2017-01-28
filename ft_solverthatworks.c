@@ -6,43 +6,54 @@
 /*   By: cfu <cfu@student.42.us.org>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 21:56:33 by cfu               #+#    #+#             */
-/*   Updated: 2017/01/26 22:59:43 by cfu              ###   ########.fr       */
+/*   Updated: 2017/01/28 02:50:33 by cfu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include <stdio.h>
 
-int			ft_solver(char *brd, int *chars, int *off_sets, char c, int spot, size_t boardsz)
+int			ft_solverthatworks(char *brd, int *chars, int *off_sets, char c, int spot, size_t boardsz)
 {
 	int		l;
 	int		u;
 	int		next;
 	int		count;
+	static int	i;
+	int		*ptr;
 
 	l = -1;
 	u = 4;
 	next = spot + 1;
 	count = 0;
+	ptr = &chars[i];
+	if (!i)
+		i = 0;
 	if (brd[spot] == '\n')
 		spot++;
 	if (brd[spot] == '\0')
 		return (0);
-	while (*chars)
+	while (i < 4)
 	{
-		while (*chars > l && *chars < u)
+		while (chars[i] > l && chars[i] < u)
 		{
-			*chars = *chars - (count * 4);
-			if (brd[spot + *chars] == '.')
-				chars++;
+			chars[i] = chars[i] - (count * 4);
+			if (brd[spot + chars[i]] == '.')
+			{
+				brd[spot + chars[i]] = c;
+				i++;
+				ptr = &chars[i];
+			}
 			else
 			{
+				if (i != 0)
+					ft_clearbrd(brd, c);
 				spot++;
-				ft_solver(&brd[next], &*chars, off_sets, c, next, boardsz);
+				ft_solverthatworks(brd, chars, off_sets, c, next, boardsz);
 			}
 		}
 		count++;
-		spot = spot + (int)boardsz;
+		spot = spot + (int)boardsz + 1;
 		l += 4;
 		u += 4;
 	}
@@ -57,12 +68,21 @@ int		main(void)
 	int		*arr1;
 	int		*arr2;
 	char	c;
+	int		i;
 
 	brd = ft_strdup("ABB.\nAABB\nA...\n....\n");
 	tet = ft_strdup("C...CCC");
 	arr1 = ft_getindx(tet);
 	arr2 = ft_getoffset(tet);
 	c = ft_gettag(tet);
-	printf("%d", ft_solver(brd, arr1, arr2, c, 0, 4));
+	i = 0;
+	while (i < 4)
+	{
+		ft_putnbr(arr1[i]);
+		ft_putchar('\n');
+		i++;
+	}
+	printf("%d", ft_solverthatworks(brd, arr1, arr2, c, 0, 4));
+	ft_putstr(brd);
 	return (0);
 }

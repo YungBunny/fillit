@@ -6,7 +6,7 @@
 #    By: cfu <marvin@42.fr>                         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/03 14:12:41 by cfu               #+#    #+#              #
-#    Updated: 2017/01/27 17:41:26 by cfu              ###   ########.fr        #
+#    Updated: 2017/01/28 00:56:27 by cfu              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SRC = ft_repchar.c ft_gettet.c ft_trim_tet.c ft_strnew.c ft_strlen.c \
 	  ft_list_em.c ft_lstnew.c ft_lsteadd.c ft_memalloc.c ft_memcpy.c \
 	  ft_strdup.c ft_put_board.c ft_make_board.c ft_getboardsz.c ft_trim_per.c\
 	  ft_getindx.c ft_getoffset.c ft_solver.c ft_big_solver.c ft_gettag.c \
-	  ft_fill_tetlist.c
+	  ft_fill_tetlist.c ft_clearbrd.c
 
 OBJS = $(SRC:.c=.o)
 

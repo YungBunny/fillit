@@ -6,7 +6,7 @@
 /*   By: cfu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/13 15:12:23 by cfu               #+#    #+#             */
-/*   Updated: 2017/01/27 18:29:31 by cfu              ###   ########.fr       */
+/*   Updated: 2017/01/28 00:57:38 by cfu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,9 @@ char				*ft_put_board(char *str, size_t size);
 char				*ft_make_board(size_t size);
 size_t				ft_getboardsz(int size);
 void				ft_trim_per(char *str, char c);
-void				ft_getindx(t_list *tet, char *str);
+int					*ft_getindx(char *str);
 int					*ft_getoffset(char *str);
-int					ft_solver(char *brd, t_list tet, int spot, size_t boardsz);
+int					ft_solver(char *brd, t_list tet, int spot, size_t boardsz, char c);
 void				ft_big_solver(char *brd, t_list *tet, int spot);
 char				ft_gettag(char *str);
 t_list				*ft_fill_tetlist(int fd);
@@ -91,5 +91,7 @@ void				ft_lsteadd(t_list **alst, t_list *nw);
 void				*ft_memalloc(size_t size);
 void				*ft_memcpy(void *dst, const void *src, size_t n);
 char				*ft_strdup(const char *s1);
+int					ft_solverthatworks(char *brd, int *chars, int *off_sets, char c, int spot, size_t boardsz);
+void				ft_clearbrd(char *str, char c);
 
 #endif

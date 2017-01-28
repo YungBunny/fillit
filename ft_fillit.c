@@ -6,7 +6,7 @@
 /*   By: cfu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 17:18:05 by cfu               #+#    #+#             */
-/*   Updated: 2017/01/27 17:13:03 by cfu              ###   ########.fr       */
+/*   Updated: 2017/01/27 22:42:10 by cfu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@ int			ft_fillit(t_list *db)
 	if (!(brd = ft_make_board(ft_getboardsz(ft_list_size(db)))))
 		return (-1);
 	ft_big_solver(brd, db, spot);
+	ft_putstr(brd);
 	return (0);
 }

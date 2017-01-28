@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_big_solver.c                                    :+:      :+:    :+:   */
+/*   ft_clearbrd.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfu <cfu@student.42.us.org>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/24 21:59:55 by cfu               #+#    #+#             */
-/*   Updated: 2017/01/27 22:50:28 by cfu              ###   ########.fr       */
+/*   Created: 2017/01/28 00:52:51 by cfu               #+#    #+#             */
+/*   Updated: 2017/01/28 00:57:01 by cfu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void		ft_big_solver(char *brd, t_list *tet, int spot)
+void		ft_clearbrd(char *str, char c)
 {
-	int		board_size;
-	int		next;
+	int i;
 
-	board_size = ft_getboardsz(ft_list_size(tet));
-	next = spot + 1;
-	while (tet)
+	i = 0;
+	if (str)
 	{
-		if (ft_solver(brd, *tet, spot, board_size, tet->letter) == 1)
+		while (str[i])
 		{
-			tet = tet->next;
-			ft_big_solver(&brd[0], tet, spot);
+			if (str[i] == c)
+			{
+				str[i] = '.';
+				i++;
+			}
+			else
+				i++;
 		}
-		else
-			ft_big_solver(&brd[next], tet, next);
 	}
 }
