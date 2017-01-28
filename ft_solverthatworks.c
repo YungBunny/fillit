@@ -6,7 +6,7 @@
 /*   By: cfu <cfu@student.42.us.org>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 21:56:33 by cfu               #+#    #+#             */
-/*   Updated: 2017/01/28 02:50:33 by cfu              ###   ########.fr       */
+/*   Updated: 2017/01/28 03:43:25 by cfu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,14 @@ int			ft_solverthatworks(char *brd, int *chars, int *off_sets, char c, int spot,
 	int		count;
 	static int	i;
 	int		*ptr;
+	int		add;
 
 	l = -1;
 	u = 4;
 	next = spot + 1;
 	count = 0;
 	ptr = &chars[i];
+	add = 0;
 	if (!i)
 		i = 0;
 	if (brd[spot] == '\n')
@@ -37,10 +39,10 @@ int			ft_solverthatworks(char *brd, int *chars, int *off_sets, char c, int spot,
 	{
 		while (chars[i] > l && chars[i] < u)
 		{
-			chars[i] = chars[i] - (count * 4);
-			if (brd[spot + chars[i]] == '.')
+			add = chars[i] - (count * 4);
+			if (brd[spot + add] == '.')
 			{
-				brd[spot + chars[i]] = c;
+				brd[spot + add] = c;
 				i++;
 				ptr = &chars[i];
 			}
