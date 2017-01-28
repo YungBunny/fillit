@@ -6,7 +6,7 @@
 /*   By: cfu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/13 15:12:23 by cfu               #+#    #+#             */
-/*   Updated: 2017/01/27 16:20:17 by cfu              ###   ########.fr       */
+/*   Updated: 2017/01/27 18:29:31 by cfu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct		s_list
 {
 	void			*content;
 	size_t			*content_size;
-	int				*char_spots;
+	int				char_spots[4];
 	int				*off_sets;
 	char			letter;
 	struct s_list	*next;
@@ -62,7 +62,7 @@ char				*ft_put_board(char *str, size_t size);
 char				*ft_make_board(size_t size);
 size_t				ft_getboardsz(int size);
 void				ft_trim_per(char *str, char c);
-int					*ft_getindx(char *str);
+void				ft_getindx(t_list *tet, char *str);
 int					*ft_getoffset(char *str);
 int					ft_solver(char *brd, t_list tet, int spot, size_t boardsz);
 void				ft_big_solver(char *brd, t_list *tet, int spot);
@@ -74,6 +74,7 @@ int					ft_list_size(t_list *begin_list);
 t_list				*ft_list_em(char *str, t_list *tet_list);
 int					ft_fillit(t_list *db);
 int					ft_checkoffsets(char *brd, int *off_sets, int spot);
+void				ft_putchar_lst(t_list *begin_list);
 char				*ft_strnew(size_t size);
 size_t				ft_strlen(const char *s);
 void				ft_putchar(char c);
