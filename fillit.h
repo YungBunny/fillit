@@ -6,7 +6,7 @@
 /*   By: cfu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/13 15:12:23 by cfu               #+#    #+#             */
-/*   Updated: 2017/01/27 16:10:06 by cfu              ###   ########.fr       */
+/*   Updated: 2017/01/27 16:20:17 by cfu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ size_t				ft_getboardsz(int size);
 void				ft_trim_per(char *str, char c);
 int					*ft_getindx(char *str);
 int					*ft_getoffset(char *str);
-int					ft_solver(char *brd, t_list *tet, int spot, size_t boardsz);
+int					ft_solver(char *brd, t_list tet, int spot, size_t boardsz);
 void				ft_big_solver(char *brd, t_list *tet, int spot);
 char				ft_gettag(char *str);
 t_list				*ft_fill_tetlist(int fd);

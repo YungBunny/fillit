@@ -6,38 +6,41 @@
 /*   By: cfu <cfu@student.42.us.org>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 21:56:33 by cfu               #+#    #+#             */
-/*   Updated: 2017/01/27 16:10:08 by cfu              ###   ########.fr       */
+/*   Updated: 2017/01/27 16:26:04 by cfu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int			ft_solver(char *brd, t_list *tet, int spot, size_t boardsz)
+int			ft_solver(char *brd, t_list tet, int spot, size_t boardsz)
 {
 	int		l;
 	int		u;
 	int		next;
 	int		count;
+	static int	i;
 
 	l = -1;
 	u = 4;
 	next = spot + 1;
 	count = 0;
+	if (!i)
+		i = 0;
 	if (brd[spot] == '\n')
 		spot++;
 	if (brd[spot] == '\0')
 		return (0);
-	while (tet->char_spots)
+	while (tet.char_spots[i])
 	{
-		while (tet->char_spots > l && tet->char_spots < u)
+		while (tet.char_spots[i] > l && tet.char_spots[i] < u)
 		{
-			tet->char_spots = tet->char_spots - (count * 4);
-			if (brd[spot + tet->char_spots] == '.')
-				tet->char_spots++;
+			tet.char_spots[i] = tet.char_spots[i] - (count * 4);
+			if (brd[spot + tet.char_spots[i]] == '.')
+				i++;
 			else
 			{
 				spot++;
-				ft_solver(&brd[next], &*tet, next, boardsz);
+				ft_solver(&brd[next], tet, next, boardsz);
 			}
 		}
 		count++;
@@ -46,5 +49,4 @@ int			ft_solver(char *brd, t_list *tet, int spot, size_t boardsz)
 		u += 4;
 	}
 	return (1);
-	}
 }
